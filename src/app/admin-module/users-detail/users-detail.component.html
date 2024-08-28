@@ -1,0 +1,139 @@
+<h3 class="m-5">Profile</h3>
+<div class="row m-5">
+    <div class="col-4">
+        <label for="">User Name</label>
+        <h6>{{record?.user[0]?.firstName}} {{record?.user[0]?.lastName}}</h6>
+    </div>
+
+    <div class="col-4">
+        <label for="">Website Link</label>
+        <h6>{{record.website}}</h6>
+    </div>
+    <div class="col-4">
+        <label>Company Name</label>
+        <h6>{{record?.company}}</h6>
+    </div>
+    <div class="col-4">
+        <label>Company Email</label>
+        <h6>{{record?.companyEmail}}</h6>
+    </div>
+    <hr class="mt-3">
+    <div class="col-4">
+        <label>Address line 1</label>
+        <h6>{{record?.addressLine1}}</h6>
+    </div>
+
+    <div class="col-4">
+        <label>State</label>
+        <h6>{{record?.state}}</h6>
+    </div>
+
+    <div class="col-4">
+        <label>City</label>
+        <h6>{{record?.city}}</h6>
+    </div>
+    <hr class="mt-3">
+    <div class="col-4">
+        <label>Postal Code</label>
+        <h6>{{record?.zipCode}}</h6>
+    </div>
+
+    <div class="col-4">
+        <label>Verification Status</label>
+        <h6 [ngClass]="record?.companyVerification?'text-success':'text-danger'">
+            {{record?.companyVerification?"Approved":"Pending"}}</h6>
+    </div>
+    <div class="col-4" *ngIf="!record?.companyVerification">
+        <button class="btn btn-outline-success" (click)="verifyCompany(verrify)">Verify</button>
+    </div>
+    <hr class="mt-3">
+
+</div>
+
+<h3 class="m-5">Documents</h3>
+
+<div class="row m-5">
+    <div class="col-6">
+        <label for="">Address Proof</label>
+        <div *ngIf="record?.addressProofUrl&&record?.addressProofUrl?.includes('.pdf')">
+            <iframe [src]="createSafeURL(record?.addressProofUrl)" frameborder="0"></iframe>
+        </div>
+        <div *ngIf="record?.addressProofUrl&&!record?.addressProofUrl?.includes('.pdf')">
+            <img [src]="record?.addressProofUrl" alt="" srcset="">
+        </div>
+    </div>
+    <div class="col-6">
+        <label for="">Pan Card</label>
+        <div *ngIf="record?.panUrl&&record?.panUrl.includes('.pdf')">
+            <iframe [src]="createSafeURL(record?.panUrl)" frameborder="0"></iframe>
+        </div>
+        <div *ngIf="record?.panUrl&&!record?.panUrl?.includes('.pdf')">
+            <img [src]="record?.panUrl" alt="" srcset="">
+        </div>
+    </div>
+    <div class="col-6">
+        <label for="">Aadhar Card</label>
+        <div *ngIf="record?.AddarUrl&&record?.AddarUrl?.includes('.pdf')">
+            <iframe [src]="createSafeURL(record?.AddarUrl)" frameborder="0"></iframe>
+        </div>
+        <div *ngIf="record?.AddarUrl&&!record?.AddarUrl?.includes('.pdf')">
+            <img [src]="record?.AddarUrl" alt="" srcset="">
+        </div>
+    </div>
+    <div class="col-6">
+        <label for="">Grant Letter</label>
+        <div *ngIf="record?.grantLetterUrl&&record?.grantLetterUrl?.includes('.pdf')">
+            <iframe [src]="createSafeURL(record?.grantLetterUrl)" frameborder="0"></iframe>
+        </div>
+        <div *ngIf="record?.grantLetterUrl&&!record?.grantLetterUrl?.includes('.pdf')">
+            <img [src]="record?.grantLetterUrl" alt="" srcset="">
+        </div>
+    </div>
+    <div class="col-6">
+        <label for="">Last 409 or FMV</label>
+        <div *ngIf="record?.last409orFMVUrl&&record?.last409orFMVUrl?.includes('.pdf')">
+            <iframe [src]="createSafeURL(record?.last409orFMVUrl)" frameborder="0"></iframe>
+        </div>
+        <div *ngIf="record?.last409orFMVUrl&&!record?.last409orFMVUrl?.includes('.pdf')">
+            <img [src]="record?.last409orFMVUrl" alt="" srcset="">
+        </div>
+    </div>
+
+    <div class="col-6">
+        <label for="">Latest Option Status</label>
+        <div *ngIf="record?.latestOptionStatusUrl&&record?.latestOptionStatusUrl?.includes('.pdf')">
+            <iframe [src]="createSafeURL(record?.latestOptionStatusUrl)" frameborder="0"></iframe>
+        </div>
+        <div *ngIf="record?.latestOptionStatusUrl&&!record?.latestOptionStatusUrl?.includes('.pdf')">
+            <img [src]="record?.latestOptionStatusUrl" alt="" srcset="">
+        </div>
+    </div>
+
+    <div class="col-6">
+        <label for="">Latest Option Status</label>
+        <div *ngIf="record?.latestOptionStatusUrl&&record?.latestOptionStatusUrl?.includes('.pdf')">
+            <iframe [src]="createSafeURL(record?.latestOptionStatusUrl)" frameborder="0"></iframe>
+        </div>
+        <div *ngIf="record?.latestOptionStatusUrl&&!record?.latestOptionStatusUrl?.includes('.pdf')">
+            <img [src]="record?.latestOptionStatusUrl" alt="" srcset="">
+        </div>
+    </div>
+</div>
+
+<ng-template #verrify>
+    <h5 class="m-3">Verify</h5>
+    <form [formGroup]="form" (submit)="submit()">
+        <div class="form-group m-3">
+            <input type="number" class="form-control" formControlName="stockPrice" placeholder="Stock Price">
+            <span class="text-danger" *ngIf="form.controls['stockPrice'].touched&&form.controls['stockPrice'].hasError('required')">Stock price is required</span>
+        </div>
+        <div class="form-group  m-3">
+            <input type="number" class="form-control" formControlName="offerPrice" placeholder="Offer Price">
+            <span class="text-danger" *ngIf="form.controls['offerPrice'].touched&&form.controls['offerPrice'].hasError('required')">Offer price is required</span>
+        </div>
+        <div class="form-group  m-3 d-flex justify-content-center">
+            <input type="submit" value="Submit" class="btn btn-outline-success m-1">
+            <input type="button" value="Cancle" class="btn btn-outline-danger m-1" (click)="closeMdel()">
+        </div>
+    </form>
+</ng-template>

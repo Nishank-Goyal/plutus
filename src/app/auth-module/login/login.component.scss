@@ -1,0 +1,43 @@
+.root{
+    height: 100vh;
+}
+
+.root>div:first-child{
+    height: 100%;
+    align-items: center;
+}
+
+.google-btn{
+    width: 100%;
+    padding: 10px 10px 10px 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 25px;
+
+    span:first-child{
+        position: absolute;
+        left: 3px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+}
+.or-outer{
+    border-bottom: 1px solid #e0e0e0;
+    line-height: .1em;
+    font-weight: 300;
+
+    span{
+        background-color: white;
+        padding: 0 10px;
+    }
+}
+ 
+.card{
+    h3{
+        padding: 10px;
+        text-align: center;
+    }
+}

@@ -1,0 +1,93 @@
+<h3 class="m-5">Profile</h3>
+<div class="row m-5">
+    <div class="col-4">
+        <label for="">User Name</label>
+        <h6>{{record?.user[0]?.firstName}} {{record?.user[0]?.lastName}}</h6>
+    </div>
+    <div class="col-4">
+        <label>Email</label>
+        <h6>{{record?.user[0].email}}</h6>
+    </div>
+    <div class="col-4">
+        <label for="">Subscription Id</label>
+        <h6>{{record.subscription}}</h6>
+    </div>
+    <!-- <div class="col-4">
+        <label>Verification Status</label>
+        <h6 [ngClass]="record?.companyVerification?'text-success':'text-danger'">
+            {{record?.companyVerification?"Approved":"Pending"}}</h6>
+    </div>
+    <div class="col-4" *ngIf="!record?.companyVerification">
+        <button class="btn btn-outline-success" (click)="verifyCompany(verrify)">Verify</button>
+    </div> -->
+    <hr class="mt-3">
+
+</div>
+
+<h3 class="m-5">Documents</h3>
+
+<div class="row m-5">
+    <div class="col-6">
+        <label for="">Id Proof</label>
+        <div *ngIf="record?.idProofUrl&&record?.idProofUrl?.includes('.pdf')">
+            <iframe [src]="createSafeURL(record?.idProofUrl)" frameborder="0"></iframe>
+        </div>
+        <div *ngIf="record?.idProofUrl&&!record?.idProofUrl?.includes('.pdf')">
+            <img [src]="record?.idProofUrl" alt="" srcset="">
+        </div>
+    </div>
+    <div class="col-6">
+        <label for="">Pan Card</label>
+        <div *ngIf="record?.panUrl&&record?.panUrl.includes('.pdf')">
+            <iframe [src]="createSafeURL(record?.panUrl)" frameborder="0"></iframe>
+        </div>
+        <div *ngIf="record?.panUrl&&!record?.panUrl?.includes('.pdf')">
+            <img [src]="record?.panUrl" alt="" srcset="">
+        </div>
+    </div>
+    <div class="col-6">
+        <label for="">Address </label>
+        <div *ngIf="record?.addressUrl&&record?.addressUrl?.includes('.pdf')">
+            <iframe [src]="createSafeURL(record?.addressUrl)" frameborder="0"></iframe>
+        </div>
+        <div *ngIf="record?.addressUrl&&!record?.addressUrl?.includes('.pdf')">
+            <img [src]="record?.addressUrl" alt="" srcset="">
+        </div>
+    </div>
+    <div class="col-6">
+        <label for="">Bank Account</label>
+        <div *ngIf="record?.bankAccountUrl&&record?.bankAccountUrl?.includes('.pdf')">
+            <iframe [src]="createSafeURL(record?.bankAccountUrl)" frameborder="0"></iframe>
+        </div>
+        <div *ngIf="record?.bankAccountUrl&&!record?.bankAccountUrl?.includes('.pdf')">
+            <img [src]="record?.bankAccountUrl" alt="" srcset="">
+        </div>
+    </div>
+    <div class="col-6">
+        <label for="">Income</label>
+        <div *ngIf="record?.incomeUrl&&record?.incomeUrl?.includes('.pdf')">
+            <iframe [src]="createSafeURL(record?.incomeUrl)" frameborder="0"></iframe>
+        </div>
+        <div *ngIf="record?.incomeUrl&&!record?.incomeUrl?.includes('.pdf')">
+            <img [src]="record?.incomeUrl" alt="" srcset="">
+        </div>
+    </div>
+</div>
+
+<!-- <ng-template #verrify>
+    <h5 class="m-3">Verify</h5>
+    <form [formGroup]="form" (submit)="submit()">
+        <div class="form-group m-3">
+            <input type="number" class="form-control" formControlName="stockPrice" placeholder="Stock Price">
+            <span class="text-danger" *ngIf="form.controls['stockPrice'].touched&&form.controls['stockPrice'].hasError('required')">Stock price is required</span>
+        </div>
+        <div class="form-group  m-3">
+            <input type="number" class="form-control" formControlName="offerPrice" placeholder="Offer Price">
+            <span class="text-danger" *ngIf="form.controls['offerPrice'].touched&&form.controls['offerPrice'].hasError('required')">Offer price is required</span>
+        </div>
+        <div class="form-group  m-3 d-flex justify-content-center">
+            <input type="submit" value="Submit" class="btn btn-outline-success m-1">
+            <input type="button" value="Cancle" class="btn btn-outline-danger m-1" (click)="closeMdel()">
+        </div>
+    </form>
+</ng-template> -->

@@ -1,0 +1,25 @@
+.bold{
+    font-weight: bold;
+}
+
+.header {
+    display: flex; /* Use flexbox to align items horizontally */
+    align-items: center; /* Center items vertically */
+  }
+  
+  h2 {
+    flex: 1; /* Allow the h2 element to take up available space */
+    margin: 0; /* Remove default margin */
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  a {
+    margin-left: 10px; /* Add spacing between the h2 and the button */
+    background: none; /* Remove button background */
+    cursor: pointer; /* Add cursor pointer for interactivity */
+    img{
+        min-height: 20px;
+        max-width: 20px;
+    }
+  }

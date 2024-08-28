@@ -1,0 +1,62 @@
+<div class="container root">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <h3>Sign up to Plutus</h3>
+
+                <div class="card-body">
+                    <!-- Google Login Button -->
+                    <a href="javascript:void(0)" (click)="signInWithGoogle()" class="btn btn-primary btn-block mb-3 google-btn">
+                        <span><img src="assets/img/google.svg"></span> <span>Continue with Google</span>
+                    </a>
+
+                    <!-- Or Separator -->
+                    <div class="text-center mb-3 or-outer">
+                        <span>Or</span>
+                    </div>
+
+                    <!-- Email/Password Form -->
+                    <form [formGroup]="signUpForm" (submit)="submit()">
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="firstName" required placeholder="First name" formControlName="firstName">
+                                    <span class="text-danger" *ngIf="signUpForm.controls['firstName'].touched&& signUpForm.controls['firstName'].hasError('required')">First name is required.</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="lastName" required placeholder="Last name" formControlName="lastName">
+                                    <span class="text-danger" *ngIf="signUpForm.controls['lastName'].touched&& signUpForm.controls['lastName'].hasError('required')">Last name is required.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="email" required formControlName="email" placeholder="Work email address">
+                            <span class="text-danger" *ngIf="signUpForm.controls['email'].touched&& signUpForm.controls['email'].hasError('required')">Email is required.</span>
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" class="form-control" id="password" required formControlName="password"  placeholder="Password (8 or more characters)">
+                            <span class="text-danger"  *ngIf="signUpForm.controls['password'].touched&& signUpForm.controls['password'].hasError('required')">Password is required.</span>
+                            <span class="text-danger"  *ngIf="signUpForm.controls['password'].touched&& signUpForm.controls['password'].hasError('pattern')">Please create a password that is 8 characters long and includes special characters.</span>
+                        </div>
+
+                        <div class="mb-3">
+                            <select name="country" id="country" class="custom-select" formControlName="country">
+                                <option value="">Select country...</option>
+                                <option value="india" >India</option>
+                            </select>
+                            <span class="text-danger"  *ngIf="signUpForm.controls['country'].touched&& signUpForm.controls['country'].hasError('required')">Country is required</span>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block w-100">Create my account</button>
+
+                        <p class="w-100 mt-3 text-center">Already have an account? <a href="javascript:void(0)"
+                                routerLink="/auth" class="text-success">Log In</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

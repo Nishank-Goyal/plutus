@@ -1,0 +1,44 @@
+<div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 fst-italic">Live Offers</h1>
+      <p class="lead my-3">Explore a variety of stock options funding offers to gain access to pre-IPO companies at earlier valuations.</p>
+      <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4 mt-5" *ngFor="let item of records" >
+        <div class="card shadow-sm">
+            <div class="card-body">
+              <div class="header">
+                <h2 (click)="view(item._id)">{{item.company}}</h2>
+                <a (click)="sendRequiest(item)" *ngIf="item?.request?.length==0">
+                  <img src="assets/img/add.png" width="20px" height="20px" alt="Button Image">
+                </a>
+                <a href="javascript:void(0)" [routerLink]="'/main/investor/live-offers/'+item._id+'/chat/'+item.request[0]?._id+'/'+item.request[0]?.reciverId" *ngIf="item?.request[0]?.status&&item?.request[0].senderId">
+                  <img src="assets/img/messenger.png" width="20px" height="20px" alt="Button Image">
+                </a>
+                <a href="javascript:void(0)" class="btn btn-outline-danger" *ngIf="item?.request[0]?.status==false" aria-disabled="true">
+                  Pending
+                </a>
+              </div>
+              <p>{{item.addressLine1}}</p>
+              <hr>
+              <div class="row">
+                <div class="col-6">
+                    <p>Common Stock Price</p>
+                </div>
+                <div class="col-6 ">
+                    <p class="text-end"> ₹ {{item.stockPrice||0}}</p>
+                </div>
+                <div class="col-6">
+                    <p>Offer Price</p>
+                </div>
+                <div class="col-6 ">
+                    <p class="text-end bold" > ₹ {{item.offerPrice||0}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="container root">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <h3>Log In to Plutus</h3>
+                <div class="card-body">
+                    <!-- Google Login Button -->
+                    <a href="javascript:void(0)" (click)="signInWithGoogle()" class="btn btn-primary btn-block mb-3 google-btn">
+                        <span><img src="assets/img/google.svg"></span> <span>Login with Google</span>
+                    </a>
+
+                    <!-- Or Separator -->
+                    <div class="text-center mb-3 or-outer">
+                        <span>Or</span>
+                    </div>
+
+                    <!-- Email/Password Form -->
+                    <form [formGroup]="loginForm" (submit)="submit()">
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="email" required placeholder="Email"
+                                formControlName="email">
+                            <span class="text-danger"
+                                *ngIf="loginForm.controls['email'].touched&&loginForm.controls['email'].hasError('required')">Email
+                                is required.</span>
+                            <span class="text-danger"
+                                *ngIf="loginForm.controls['email'].touched&&loginForm.controls['email'].hasError('pattern')">Please
+                                enter valid email.</span>
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" class="form-control" id="password" required placeholder="Password"
+                                formControlName="password">
+                            <span class="text-danger"
+                                *ngIf="loginForm.controls['password'].touched&&loginForm.controls['password'].hasError('required')">Password
+                                id required.</span>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block w-100">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

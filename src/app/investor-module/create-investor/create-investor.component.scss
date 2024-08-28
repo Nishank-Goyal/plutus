@@ -1,0 +1,12 @@
+.dotted-border {
+    border: 2px dotted black; /* 2px width, dotted style, and color #999 (gray) */
+    padding: 20px; /* Add some padding for spacing */
+}
+
+
+ /* Additional custom styles */
+ .end-button {
+    display: flex;
+    justify-content: flex-end;
+    padding: 9px;
+}

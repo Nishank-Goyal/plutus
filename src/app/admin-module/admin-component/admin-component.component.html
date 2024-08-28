@@ -1,0 +1,48 @@
+<div class="row bg-dark">
+    <div class="col-sm-12 col-md-12 col-xl-12 col-xxl-12 nav2">
+      <nav class="navbar navbar-expand-lg bg-dark sticky-top">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item" *ngFor="let item of headerOptions">
+                <a class="nav-link" aria-current="page" href="javascript:void(0)" [routerLink]="item.path"
+                  routerLinkActive="active-nav">{{item.value}}</a>
+              </li>
+            </ul>
+            <!-- FAQ Icon and Text -->
+            <div class="d-flex align-items-center">
+              <a href="/#faq" >
+                <i class="fa fa-graduation-cap" aria-hidden="true"></i> 
+                <span class="me-2">FAQ</span>
+              </a>
+            </div>
+            <!-- User Dropdown -->
+            <div class="dropdown">
+              <a class="btn dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <img src="assets/img/user.png" alt="User Image" class="rounded-circle" style="width: 30px; height: 30px;">
+                <span class="ms-2">{{commonService.userData?.firstName}} {{commonService.userData?.lastName}}</span>
+              </a>
+  
+              <!-- Dropdown Menu -->
+              <ul class="dropdown-menu bg-dark" aria-labelledby="userDropdown">
+                <!-- <li><a class="dropdown-item" href="#">Profile</a></li> -->
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="javascript:void(0)" (click)="logoutConfirmModel()">Logout</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)" routerLink="/main/dashboard">Home</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+  
+  
+    </div>
+  </div>
+<router-outlet></router-outlet>

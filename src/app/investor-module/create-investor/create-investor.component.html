@@ -1,0 +1,60 @@
+<form [formGroup]="form" (submit)="submit()">
+    <h3>Document Verification</h3>
+    <div class="row mt-5">
+        <div class="col-3">
+            Upload Pan Card Details
+        </div>
+        <div class="col-6 border-dark dotted-border p-4 ">
+            <input type="file" class="custom-file-input" name="" id="files"
+                (change)="fileUpload($event,'panUrl')">
+                <small class="text-danger" *ngIf="form.controls['panUrl'].touched&&form.controls['panUrl'].hasError('required')">Pan card is required.</small>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-3">
+            Upload Valid Govt. ID
+        </div>
+        <div class="col-6 border-dark dotted-border p-4 ">
+            <input type="file" class="custom-file-input" name="" id="files"
+                (change)="fileUpload($event,'idProofUrl')">
+                <small class="text-danger" *ngIf="form.controls['idProofUrl'].touched&&form.controls['idProofUrl'].hasError('required')">Id proof is required.</small>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-3">
+            Upload Address Proof
+        </div>
+        <div class="col-6 border-dark dotted-border p-4 ">
+            <input type="file" class="custom-file-input" name="" id="files"
+                (change)="fileUpload($event,'addressUrl')">
+                <small class="text-danger" *ngIf="form.controls['addressUrl'].touched&&form.controls['addressUrl'].hasError('required')">Address proof is required.</small>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-3">
+            Upload Bank Account(Frontpage of Passbook)
+        </div>
+        <div class="col-6 border-dark dotted-border p-4 ">
+            <input type="file" class="custom-file-input" name="" id="files"
+                (change)="fileUpload($event,'bankAccountUrl')">
+                <small class="text-danger" *ngIf="form.controls['bankAccountUrl'].touched&&form.controls['bankAccountUrl'].hasError('required')">Bank detail is required.</small>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-3">
+            Upload Income Proof
+        </div>
+        <div class="col-6 border-dark dotted-border p-4 ">
+            <input type="file" class="custom-file-input" name="" id="files"
+                (change)="fileUpload($event,'incomeUrl')">
+                <small class="text-danger" *ngIf="form.controls['incomeUrl'].touched&&form.controls['incomeUrl'].hasError('required')">Income detail is required.</small>
+        </div>
+    </div>
+    <div class="row m-3">
+        <div class="col-12 d-flex justify-content-center">
+            <button type="submit" class="btn btn-outline-success custom-button">Submit</button>
+        </div>
+    </div>
+
+</form>

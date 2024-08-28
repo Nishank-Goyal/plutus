@@ -1,0 +1,37 @@
+
+    
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Hi {{commonService.userData?.firstName}} {{commonService.userData?.lastName}}</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="d-flex justify-content-end" role="search">
+              <button *ngIf="commonService?.userData?.userType==2" class="btn btn-sm btn-outline-success text-success" type="submit"(click)="openAdmin()" >Admin</button>
+              <button class="btn btn-sm btn-outline-danger text-danger" type="submit" (click)="logoutConfirmModel()">Logout</button>
+            </div>
+        </div>
+      </nav>
+    <div class="container">
+        <div class="row" id="row">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                <div id="one">
+                    <p>Startup Employee?</p>
+                    <h1>I am an Employee<br>looking for funding</h1>
+                    <button> <a href="javascript:viod(0)" routerLink="../employee"><b class="text-dark">View Employee
+                                Dashborad</b></a></button>
+                    <img src="https://img.freepik.com/free-vector/men-success-laptop-relieve-work-from-home-computer-great_10045-646.jpg?w=740&t=st=1696500096~exp=1696500696~hmac=a1dfce589877bf3979c8be43a986d5764126da46a15af69ba96c25beb0cfac2a"  class="img1">
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                <div id="two">
+                    <p>Investor?</p>
+                    <h1>I am an Investor<br>looking for funding</h1>
+                    <button><a href="javascript:void(0)" routerLink="../investor"><b class="text-dark">View Investor Dashborad</b></a></button>
+                    <img src="https://img.freepik.com/free-vector/lying-arrow-concept-illustration_114360-8531.jpg?w=740&t=st=1696500396~exp=1696500996~hmac=fa9a9aacbcbd45f22b378997a2205c44c40ac856975f2ffa56531998d9eb4331"
+                        class="img2">
+
+                </div>
+            </div>
+        </div>
+    </div>

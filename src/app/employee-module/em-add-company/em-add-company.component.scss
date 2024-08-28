@@ -1,0 +1,543 @@
+#one {
+    flex: wrap;
+    justify-content: center;
+    text-align: left;
+    padding: 100px;
+    margin-top: -62px;
+    text-decoration: none;
+
+    #index1 {
+        text-decoration: none;
+
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        span {
+            background: gainsboro;
+            color: black;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            padding: 15px;
+            font-size: 8px;
+        }
+
+    }
+}
+
+.deactivate {
+    color: gainsboro;
+    margin-top: 23px;
+
+
+    a {
+        color: gainsboro;
+    }
+
+    span {
+        background: gainsboro;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        padding: 15px;
+        color: rgb(198, 189, 189);
+        font-size: 8px;
+
+    }
+
+}
+
+
+#index3 {
+    color: gainsboro;
+    margin-top: 23px;
+
+    a {
+        color: gainsboro;
+    }
+
+    span {
+        background: gainsboro;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        padding: 15px;
+        color: rgb(198, 189, 189);
+        font-size: 8px;
+
+    }
+
+}
+
+#three1 {
+    border: 2px solid rgb(198, 189, 189);
+    background-color: rgb(45, 42, 42);
+    height: 1169px;
+    width: 0.1%;
+    margin-left: -115px;
+    padding: 2px;
+
+    i {
+        margin-left: 2px;
+        font-size: larger;
+    }
+}
+
+#item {
+    height: 20px;
+    width: 30px;
+}
+
+#three {
+    margin-left: 80px;
+    padding: 40px;
+}
+
+
+#form1 {
+    display: flex;
+    justify-content: left;
+
+    #col1 {
+        select {
+            // padding: 12px;
+            display: flex;
+
+
+        }
+    }
+
+    #col2 {
+        box-sizing: border-box;
+        border: 2px solid gray;
+        background-color: rgb(151, 144, 144);
+        margin-left: -60px;
+        border-radius: 5px;
+        height: 51px;
+        width: 7%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+
+        i {
+            margin-top: 15px;
+            color: black;
+        }
+    }
+
+    #col3 {
+        height: 50px;
+        margin-left: 30px;
+
+        input {
+            padding: 10px;
+            border-radius: 5px;
+        }
+    }
+
+    #col4 {
+        display: flex;
+        justify-content: left;
+        text-align: left;
+
+        button {
+            border-radius: 5px;
+            margin-left: -23px;
+            padding: 10px;
+            height: 52px;
+            width: 119px;
+            background-color: rgb(90, 189, 90);
+
+            i {
+                padding: 3px;
+            }
+
+        }
+
+        button:hover {
+            color: black;
+            background-color: rgb(199, 79, 79);
+        }
+
+    }
+
+}
+
+#form2 {
+    label {
+        margin-left: 30px;
+    }
+
+    .input1 {
+        margin-left: 4px;
+    }
+
+    span {
+        color: red;
+    }
+
+}
+
+#form3 {
+    label {
+        margin-left: 120px;
+    }
+
+    input {
+        margin-left: 10px;
+    }
+}
+
+#form4 {
+    display: flex;
+    justify-content: left;
+    text-align: left;
+    margin-top: 30px;
+
+    label {
+        margin-left: 30px;
+
+    }
+
+    select {
+        width: 27%;
+        margin-left: -41px;
+    }
+
+    span {
+        margin-left: 6px;
+        color: red;
+    }
+
+    #eorre {
+        border: 2px solid gray;
+        border-radius: 5px;
+        background-color: rgb(179, 165, 165);
+        height: 40px;
+        width: 7%;
+        margin-left: 297px;
+        margin-top: -40px;
+
+        i {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            margin-top: 10px;
+            color: black;
+        }
+    }
+}
+
+#form5 {
+    margin-top: 30px;
+
+    label {
+        margin-left: 20px;
+    }
+
+    input {
+        margin-left: 1px;
+    }
+
+    span {
+        color: red;
+    }
+}
+
+#form6 {
+    margin-top: 20px;
+
+    label {
+        margin-left: 81px;
+    }
+
+    select {
+        width: 50%;
+        margin-left: -259px;
+
+    }
+
+    span {
+        margin-left: 2px;
+        color: red;
+    }
+
+    #eorre {
+        border: 2px solid gray;
+        border-radius: 5px;
+        background-color: rgb(179, 165, 165);
+        height: 40px;
+        width: 7%;
+        margin-left: -503px;
+
+        i {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            margin-top: 10px;
+            color: black;
+        }
+    }
+}
+
+#form7 {
+    margin-top: 35px;
+
+    label {
+        margin-left: 89px;
+        margin-top: 20px;
+    }
+
+    p {
+        border: 2px dashed black;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        padding: 50px;
+        margin-left: -288px;
+
+        button {
+            border: 2px solid black;
+            border-radius: 9px;
+            background-color: rgb(90, 189, 90);
+        }
+
+        button:hover {
+            color: black;
+            background-color: rgb(199, 79, 79);
+        }
+    }
+}
+
+#form8 {
+    margin-top: 30px;
+
+    h6 {}
+
+    button {
+        margin-left: -114px;
+
+    }
+}
+
+#form9 {
+    margin-top: 30px;
+
+    button {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        border: 2px solid black;
+        background-color: rgb(90, 189, 90);
+        margin-left: 618px;
+        padding: 5px;
+        width: 16%;
+
+        i {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            margin-top: 3px;
+        }
+    }
+
+    button:hover {
+        color: black;
+        background-color: rgb(199, 79, 79);
+    }
+}
+
+
+
+
+
+
+#box {
+    width: 50%;
+    padding: 14px;
+
+    i {
+        font-size: 38px;
+        margin-left: 17px;
+        color: #4a7a1b;
+    }
+
+    h3 {
+        color: black;
+
+    }
+
+    p {
+        font-size: smaller;
+    }
+}
+
+
+
+#button {
+    height: 59px;
+    width: 70%;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #e9f7dc;
+    margin-top: 23px;
+    margin-left: 45px;
+
+    .icon3 {
+        font-size: 38px;
+        margin-left: 23px;
+        color: #4a7a1b;
+    }
+
+    .aa {
+        font-size: 21px;
+        margin-left: -72px;
+        color: #6a9a39;
+    }
+}
+
+#box1 {
+    display: flex;
+    font-family: sans-serif;
+    padding: 30px;
+    background-color: #f2faff;
+
+
+    p {
+        font-size: 13px;
+    }
+
+    i {
+        font-size: 45px;
+        margin-left: 30px;
+        color: #a6ee63;
+    }
+
+    h5 {
+        margin-left: -60px;
+        font-size: 19px;
+        font-family: sans-serif;
+    }
+
+    hr {
+        margin-top: 41px;
+    }
+
+    .boxa {
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        padding: 30px;
+        width: 42%;
+        height: 275px;
+        border-radius: 15px;
+    }
+}
+
+#box2 {
+    background-color: #f2faff;
+    padding: 22px;
+    width: 55%;
+    height: 165px;
+    margin-left: 10px;
+
+    p {
+        font-size: small;
+
+    }
+}
+
+#box3 {
+    padding: 20px;
+
+    p {
+        color: black;
+    }
+
+    button {
+        width: 77%;
+        height: 47px;
+        border-radius: 6px;
+        margin-left: 95px;
+        background-color: #ecedeb;
+    }
+}
+
+.font {
+    font-size: 14px;
+    color: black;
+}
+
+.dotted-border {
+    border: 2px dotted black; /* 2px width, dotted style, and color #999 (gray) */
+    padding: 20px; /* Add some padding for spacing */
+}
+
+
+ /* Additional custom styles */
+ .end-button {
+    display: flex;
+    justify-content: flex-end;
+    padding: 9px;
+}
+
+.custom-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+.custom-button:hover {
+    background-color: #218838;
+}
+
+/* Adjust button padding and margin */
+.custom-button .fa {
+    margin-left: 5px;
+}
+
+
+
+
+/* Style for the steps */
+ul.steps {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul.steps li {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    opacity: 0.5; /* Default opacity for inactive steps */
+}
+
+ul.steps li.active {
+    opacity: 1; /* Full opacity for active step */
+}
+
+ul.steps li span {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #0f0f10;
+    color: #fff;
+    text-align: center;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+ul.steps li i.fa-lock {
+    margin-left: 10px;
+}
+
+.ml-2{
+    margin-left: 20px;
+}

@@ -1,0 +1,85 @@
+ <!-- ======= Contact Section ======= -->
+ <section id="contact" class="contact">
+    <div class="container">
+
+      <div class="section-title" data-aos="fade-up">
+        <h2>Contact Us</h2>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="contact-about">
+            <h3>Plutus</h3>
+            <p>Have questions or ready to connect? Reach out to us and let's explore how we can bridge the gap between talented employees looking to exercise their ESOP options and investors seeking opportunities in unlisted funded startups. Your journey starts here.</p>
+            <!-- <div class="social-links">
+              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div> -->
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
+          <div class="info">
+            <!-- <div>
+              <i class="ri-map-pin-line"></i>
+              <p>Mohali<br>India, 160052</p>
+            </div> -->
+
+            <div>
+              <i class="ri-mail-send-line"></i>
+              <p>nishankgoyal427@gmail.com</p>
+            </div>
+
+            <div>
+              <i class="ri-phone-line"></i>
+              <p>+91 8448975404</p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-lg-5 col-md-12" data-aos="fade-up" data-aos-delay="300">
+          <form  class="php-email-form" [formGroup]="constactForm" (submit)="submit()">
+            <div class="form-group">
+              <select class="custom-select" name="userType" id="userType" formControlName="role">
+                <option value="">I'am a...</option>
+                <option value="Employee">Employee</option>
+                <option value="Investor">Investor</option>
+                <option value="Press">Press</option>
+                <option value="Other">Other</option>
+              </select>
+              <span class="text-danger" *ngIf="constactForm.controls['role'].touched && constactForm.controls['role'].hasError('required') ">User type is required.</span>
+              <!-- <input type="text" class="form-control" name="userType" id="subject" placeholder="Subject" required>
+               -->
+            </div>
+            <div class="form-group">
+              <input type="text" name="name" class="form-control" formControlName="name" id="name" placeholder="Name" required>
+              <span class="text-danger" *ngIf="constactForm.controls['name'].touched && constactForm.controls['name'].hasError('required') ">Name is required.</span>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" formControlName="email" name="email" id="email" placeholder="Email" required>
+              <span class="text-danger" *ngIf="constactForm.controls['email'].touched && constactForm.controls['email'].hasError('required') ">Email is required.</span>
+              <span class="text-danger" *ngIf="constactForm.controls['email'].touched && constactForm.controls['email'].hasError('pattern') ">Please enter valid email.</span>
+            </div>
+
+            <div class="form-group">
+              <input type="tel" class="form-control" name="phone" formControlName="phone" id="phone" placeholder="Phone" required>
+              <span class="text-danger" *ngIf="constactForm.controls['phone'].touched && constactForm.controls['phone'].hasError('required') ">Phone is required.</span>
+              <span class="text-danger" *ngIf="constactForm.controls['phone'].touched && constactForm.controls['phone'].hasError('pattern') ">Please enter valid phone number.</span>
+            </div>
+            
+            <div class="form-group">
+              <textarea class="form-control" name="message" rows="5" formControlName="message" placeholder="Message" required></textarea>
+              <span class="text-danger" *ngIf="constactForm.controls['message'].touched && constactForm.controls['message'].hasError('required') ">Message is required.</span>
+            </div>
+            <div class="text-center" ><button type="submit">Send Message</button></div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Contact Section -->

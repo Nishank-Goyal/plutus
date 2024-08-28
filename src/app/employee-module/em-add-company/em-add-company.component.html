@@ -1,0 +1,341 @@
+<div class="row">
+    <div class="col-3 mt-5 ml-2 steps-container">
+        <ul class="steps">
+            <li class="active" (click)="onTabChange(1)"><span>1</span> Application</li>
+            <li (click)="onTabChange(2)" [class]="applicationFormSubmited&&applicationForm.valid?'active':''"><span>2</span> Document Upload <i
+                    *ngIf="!applicationFormSubmited&&!applicationForm.valid" class="fa fa-lock" aria-hidden="true"></i>
+            </li>
+            <li (click)="onTabChange(3)" [class]="documentForm.valid&&documentFormSubmited?'active':''"><span>3</span> Agreement <i class="fa fa-lock" aria-hidden="true" *ngIf="!documentForm.valid&&!documentFormSubmited"></i></li>
+        </ul>
+    </div>
+
+    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1" id="three1">
+    </div>
+    <div *ngIf="activeForm=='application'" class=" col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 col-xxl-7" id="three">
+        <h1>Where are your stock options from?</h1>
+        <h5><b>Company Name & Verification</b></h5>
+        <p>Select a company you work for or have worked for in the past</p>
+        <div>
+
+            <form [formGroup]="applicationForm" (submit)="applicationFormSubmit()">
+                <div class="row" id="form1">
+                    <div class="col-6" id="col1">
+                        <input type="text" formControlName="company" placeholder="Company Name" class="form-control">
+                        <span class="text-danger"
+                            *ngIf="applicationForm.controls['company'].touched && applicationForm.controls['company'].hasError('required')">Company
+                            name is required.</span>
+                    </div>
+
+                    <div class="col-6">
+
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Enter your email" aria-label="Email"
+                                aria-describedby="verify-button" formControlName="companyEmail">
+                            <button class="btn btn-success" type="button" id="verify-button"
+                                (click)="sendEmailVerification()">Verify</button>
+                        </div>
+                        <span class="text-danger"
+                            *ngIf="applicationForm.controls['companyEmail'].touched && applicationForm.controls['companyEmail'].hasError('required')">Company
+                            email is required.</span>
+                        <span class="text-danger"
+                            *ngIf="applicationForm.controls['companyEmail'].touched && applicationForm.controls['companyEmail'].hasError('pattern')">Please
+                            enter valid email.</span>
+                    </div>
+                </div>
+                <h6><b>Enter Address</b></h6>
+                <p>Enter your current residency for verification</p>
+
+                <div class="row">
+                    <div class="col-3">
+                        Website <span class="text-danger">*</span>
+                    </div>
+                    <div class="col-6">
+                        <input type="text" class="form-control" formControlName="website" placeholder="https://exaple.com">
+                        <span class="text-danger"  *ngIf="applicationForm.controls['website'].touched && applicationForm.controls['website'].hasError('required')">Website is required.</span>
+                        <span class="text-danger"  *ngIf="applicationForm.controls['website'].touched && applicationForm.controls['website'].hasError('pattern')">Please enter valid website link.</span>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-3">
+                        Address Line 1 <span class="text-danger">*</span>
+                    </div>
+                    <div class="col-6">
+                        <input type="text" class="form-control" formControlName="addressLine1">
+                        <span class="text-danger"
+                            *ngIf="applicationForm.controls['addressLine1'].touched && applicationForm.controls['addressLine1'].hasError('required')">Address
+                            is required.</span>
+                    </div>
+                </div>
+
+
+
+                <div class="row mt-3">
+                    <div class="col-3">
+                        Address Line 2
+                    </div>
+                    <div class="col-6">
+                        <input type="text" class="form-control" formControlName="addressLine2">
+                    </div>
+                </div>
+
+
+                <div class="row mt-3">
+                    <div class="col-3">
+                        City <span class="text-danger">*</span>
+                    </div>
+                    <div class="col-6">
+                        <input type="text" class="form-control" formControlName="city">
+                        <span class="text-danger"
+                            *ngIf="applicationForm.controls['city'].touched && applicationForm.controls['city'].hasError('required')">City
+                            is required.</span>
+
+                    </div>
+                </div>
+
+
+                <div class="row mt-3">
+                    <div class="col-3">
+                        State/Province <span class="text-danger">*</span>
+                    </div>
+                    <div class="col-6">
+                        <select class="custom-select" formControlName="state">
+                            <option value="" selected>Select State/Province</option>
+                            <option *ngFor="let state of stateList" [value]="state">{{state}}</option>
+                        </select>
+                        <span class="text-danger"
+                            *ngIf="applicationForm.controls['state'].touched && applicationForm.controls['state'].hasError('required')">State
+                            is required.</span>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-3">
+                        Zip/Postal Code <span class="text-danger">*</span>
+                    </div>
+                    <div class="col-6">
+                        <input type="number" class="form-control" formControlName="zipCode">
+                        <span class="text-danger"
+                            *ngIf="applicationForm.controls['zipCode'].touched && applicationForm.controls['zipCode'].hasError('required')">Zip
+                            code is required.</span>
+
+                    </div>
+                </div>
+
+
+                <div class="row mt-3">
+                    <div class="col-3">
+                        Country <span class="text-danger">*</span>
+                    </div>
+                    <div class="col-6">
+                        <select class="custom-select" formControlName="country">
+                            <option value="">Select Country</option>
+                            <option value="india">India</option>
+                        </select>
+                        <span class="text-danger"
+                            *ngIf="applicationForm.controls['country'].touched && applicationForm.controls['country'].hasError('required')">country
+                            is required.</span>
+                    </div>
+                </div>
+
+
+                <div class="row mt-5">
+                    <div class="col-3">
+                        Address Proof File
+                    </div>
+                    <div class="col-6 border-dark dotted-border p-4 ">
+                        <!-- <label for="files">Drag and drop flies here or <button class="btn btn-outline-secondary">Browse</button></label> -->
+                        <input type="file" class="custom-file-input" name="" id="files"
+                            (change)="fileUpload($event,1,'addressProofUrl')">
+                    </div>
+                </div>
+
+
+                <div class="row mt-4">
+                    <div class="col-3">
+                        Last Date of ESOP Excercise
+                    </div>
+                    <div class="col-6">
+                        <input type="date" class="form-control" formControlName="lastDateofESOPExcercise">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 m-3">
+                        <div class="end-button">
+                            <button type="submit" class="btn btn-success btn-sm custom-button">Next <i
+                                    class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+    <div *ngIf="activeForm=='upload'" class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 col-xxl-7">
+        <form [formGroup]="documentForm" (submit)="uploadFormSubmit()">
+            <div class="row" id="box">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
+                    <i class="fa fa-file-text" aria-hidden="true"></i>
+
+                </div>
+                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 col-xxl-10">
+                    <h3><b>Upload Documents</b></h3>
+                    <p>Please share the following documents.</p>
+                </div>
+            </div>
+
+            <div class="row m-1" id="box1">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 boxa">
+                    <div class="row">
+                        <label for="grantLetterUrl">Grant Letter</label>
+                        <input type="file"  id="grantLetterUrl" (change)="fileUpload($event,2,'grantLetterUrl')" accept=".jpg, .jpeg, .png, .pdf">
+                        <p class="para" [ngClass]="documentForm.controls['grantLetterUrl'].valid?'text-success':''">{{documentForm.controls['grantLetterUrl'].valid?'File selected':'No files uploaded yet'}}</p>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6" id="box2">
+                    <h6><b>Why we need this?</b></h6>
+                    <p>Your grant letters the number of option,the struike price,and the<br>
+                        vesting schedule.Your option agreements are the legal documents you<br>
+                        recevied when you were first granted your options.These will help us<br>
+                        determine the funding amount needed to exercise your option.</p>
+                    <hr>
+                </div>
+                <small class="text-danger"
+                    *ngIf="documentForm.controls['grantLetterUrl'].touched&&documentForm.controls['grantLetterUrl'].hasError('required')">Required</small>
+
+            </div>
+            <div class="row m-1" id="box1">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 boxa">
+                    <div class="row">
+                            <label for="latestOptionStatusUrl">Latest Options Status</label>
+                            <input type="file"  id="latestOptionStatusUrl" (change)="fileUpload($event,2,'latestOptionStatusUrl')" accept=".jpg, .jpeg, .png, .pdf">
+                            <p class="para" [ngClass]="documentForm.controls['latestOptionStatusUrl'].valid?'text-success':''">{{documentForm.controls['latestOptionStatusUrl'].valid?'File selected':'No files uploaded yet'}}</p>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6" id="box2">
+                    <h6><b>Why we need this?</b></h6>
+                    <p>This is simmply a screenshot of a screen that shows the current ststus of<br>
+                        your options.Similar to your grant letter,this will help us determine the<br>
+                        number of your vested options,their strike price,and expiration date.</p>
+                    <hr>
+                </div>
+                <small class="text-danger"
+                    *ngIf="documentForm.controls['latestOptionStatusUrl'].touched&&documentForm.controls['latestOptionStatusUrl'].hasError('required')">Required</small>
+            </div>
+            <div class="row m-1" id="box1">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 boxa">
+                <div class="row">
+                        <label for="last409orFMVUrl">Last 409A or FMV</label>
+                        <input type="file"  id="last409orFMVUrl" (change)="fileUpload($event,2,'last409orFMVUrl')" accept=".jpg, .jpeg, .png, .pdf">
+                        <p class="para" [ngClass]="documentForm.controls['last409orFMVUrl'].valid?'text-success':''">{{documentForm.controls['last409orFMVUrl'].valid?'File selected':'No files uploaded yet'}}</p>
+                </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6" id="box2">
+                    <h6><b>Why we need this?</b></h6>
+                    <p>This is a screenshot showing your company's latest share value,based on<br>
+                        the last fair market value (FMV) or 409A evaluation of the company's<br>
+                        common stock.This will help the investors to see the latest company<br>
+                        valuation.</p>
+                    <hr>
+                </div>
+                <small class="text-danger"
+                    *ngIf="documentForm.controls['last409orFMVUrl'].touched&&documentForm.controls['last409orFMVUrl'].hasError('required')">Required</small>
+            </div>
+
+            <div class="row m-1" id="box1">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 boxa">
+                    <div class="row">
+                        <label for="panUrl">PAN Card</label>
+                        <input type="file"  id="panUrl" (change)="fileUpload($event,2,'panUrl')" accept=".jpg, .jpeg, .png, .pdf">
+                        <p class="para" [ngClass]="documentForm.controls['panUrl'].valid?'text-success':''">{{documentForm.controls['panUrl'].valid?'File selected':'No files uploaded yet'}}</p>
+                </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6" id="box2">
+                    <h6><b>Why we need this?</b></h6>
+                    <p>This is a screenshot showing your company's latest share value,based on<br>
+                        the last fair market value (FMV) or 409A evaluation of the company's<br>
+                        common stock.This will help the investors to see the latest company<br>
+                        valuation.</p>
+                    <hr>
+                </div>
+                <small class="text-danger"
+                    *ngIf="documentForm.controls['panUrl'].touched&&documentForm.controls['panUrl'].hasError('required')">Required</small>
+            </div>
+
+
+            <div class="row m-1" id="box1">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 boxa">
+                    <div class="row">
+                        <label for="AddarUrl">Aadhar Card</label>
+                        <input type="file"  id="AddarUrl" (change)="fileUpload($event,2,'AddarUrl')" accept=".jpg, .jpeg, .png, .pdf">
+                        <p class="para" [ngClass]="documentForm.controls['AddarUrl'].valid?'text-success':''">{{documentForm.controls['AddarUrl'].valid?'File selected':'No files uploaded yet'}}</p>
+                </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6" id="box2">
+                    <h6><b>Why we need this?</b></h6>
+                    <p>This is a screenshot showing your company's latest share value,based on<br>
+                        the last fair market value (FMV) or 409A evaluation of the company's<br>
+                        common stock.This will help the investors to see the latest company<br>
+                        valuation.</p>
+                    <hr>
+                </div>
+                <small class="text-danger"
+                    *ngIf="documentForm.controls['AddarUrl'].touched&&documentForm.controls['AddarUrl'].hasError('required')">Required</small>
+            </div>
+
+
+            <div class="row m-3">
+                <div class="col-6">
+                    <!-- activeForm=='application' -->
+                    <button class="btn btn-sm" (click)="activeForm='application'"> <i class="fa fa-long-arrow-left" aria-hidden="true"></i> Back</button>
+                    <!-- <p><b><i class="fa fa-long-arrow-left" aria-hidden="true"></i> &nbsp;Back</b></p> -->
+                </div>
+                <div class="col-6">
+                    <div class="d-flex justify-content-end">
+                        <button class="btn btn-outline-success">Submit Documents</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div  class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 col-xxl-7" *ngIf="activeForm=='agrement'">
+        <h2>Agreement</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget elit vel justo tincidunt aliquam. Quisque malesuada, odio non tristique tempus, eros dui ultrices purus, in facilisis felis arcu non metus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget elit vel justo tincidunt aliquam. Quisque malesuada, odio non tristique tempus, eros dui ultrices purus, in facilisis felis arcu non metus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget elit vel justo tincidunt aliquam. Quisque malesuada, odio non tristique tempus, eros dui ultrices purus, in facilisis felis arcu non metus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget elit vel justo tincidunt aliquam. Quisque malesuada, odio non tristique tempus, eros dui ultrices purus, in facilisis felis arcu non metus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget elit vel justo tincidunt aliquam. Quisque malesuada, odio non tristique tempus, eros dui ultrices purus, in facilisis felis arcu non metus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget elit vel justo tincidunt aliquam. Quisque malesuada, odio non tristique tempus, eros dui ultrices purus, in facilisis felis arcu non metus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget elit vel justo tincidunt aliquam. Quisque malesuada, odio non tristique tempus, eros dui ultrices purus, in facilisis felis arcu non metus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget elit vel justo tincidunt aliquam. Quisque malesuada, odio non tristique tempus, eros dui ultrices purus, in facilisis felis arcu non metus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget elit vel justo tincidunt aliquam. Quisque malesuada, odio non tristique tempus, eros dui ultrices purus, in facilisis felis arcu non metus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget elit vel justo tincidunt aliquam. Quisque malesuada, odio non tristique tempus, eros dui ultrices purus, in facilisis felis arcu non metus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget elit vel justo tincidunt aliquam. Quisque malesuada, odio non tristique tempus, eros dui ultrices purus, in facilisis felis arcu non metus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget elit vel justo tincidunt aliquam. Quisque malesuada, odio non tristique tempus, eros dui ultrices purus, in facilisis felis arcu non metus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget elit vel justo tincidunt aliquam. Quisque malesuada, odio non tristique tempus, eros dui ultrices purus, in facilisis felis arcu non metus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget elit vel justo tincidunt aliquam. Quisque malesuada, odio non tristique tempus, eros dui ultrices purus, in facilisis felis arcu non metus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget elit vel justo tincidunt aliquam. Quisque malesuada, odio non tristique tempus, eros dui ultrices purus, in facilisis felis arcu non metus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget elit vel justo tincidunt aliquam. Quisque malesuada, odio non tristique tempus, eros dui ultrices purus, in facilisis felis arcu non metus.</p>
+       
+        <form [formGroup]="AgreeMentForm" (submit)="submitAgreement()">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="checkbox1" formControlName="agreeTerms">
+                <label class="form-check-label" for="checkbox1">
+                    I agree to the terms and conditions.
+                </label>
+                <span *ngIf="AgreeMentForm.controls['agreeTerms'].touched&& AgreeMentForm.controls['agreeTerms'].hasError('required')">(<small class="text-danger">Required</small>)</span>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="checkbox2" formControlName="agreeEmailUpdate">
+                <label class="form-check-label" for="checkbox2">
+                    I agree to receive promotional emails.
+                </label>
+                <span *ngIf="AgreeMentForm.controls['agreeEmailUpdate'].touched&& AgreeMentForm.controls['agreeEmailUpdate'].hasError('required')">(<small class="text-danger">Required</small>)</span>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
